@@ -1,0 +1,13 @@
+<ul class="bloc-index">
+  <!--  -->
+  <li ng-repeat="product in products | filter:{selected:false}">
+    <div class="{{ product.status }}">
+      <img ng-src="{{ product.image }}" alt="© Copyright 2016 Stéphane Wagner" width="382" height="302" class="">
+      <h1>{{ product.label }}</h1>
+      <p>{{ product.sublabel }}</p>
+      <hr>
+      <md-button ng-href="{{ product.link }}">{{ product.linkTitle }}</md-button>
+    </div>
+  </li>
+  <!--  -->
+</ul>

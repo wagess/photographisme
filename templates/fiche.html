@@ -1,0 +1,24 @@
+<div bg-image="{{ ficheURL }}"></div>
+<div class="fiche-content">
+	<!-- <hr> -->
+	<br>
+	<img ng-src="{{ defaultImage }}" class="img-circle" alt="Cinque Terre" width="50" height="50"> 
+	<h6 class="small"><a ng-href="{{ mail }}">{{ auteur }}</a></h6>
+	<hr size="30">
+	<h1>{{ ficheTitre }}</h1>
+	<hr size="30">
+	<br>	
+	<span class="glyphicon glyphicon-book"></span>
+	<p class="lead">{{ ficheContent }}</p>
+	<br>
+	<span class="glyphicon glyphicon-tag"></span>
+	<br>
+	<ul ng-repeat="tag in ficheTags">
+	    <!-- <li ng-repeat="tag in ficheTags | filter:$last:' ,' ">{{ tag }}</li> -->
+	    <li class="mark" ng-if="$index < ficheTags.length-1">{{ tag + ', '}}</li>
+      	<li class="mark" ng-show="$last">{{ tag }}</li>
+	</ul>
+	<a href="#" ng-click="closeFiche()" class="btn btn-info btn-lg">
+		<span class="glyphicon glyphicon-remove"></span> 
+	</a>
+</div>

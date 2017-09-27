@@ -1,0 +1,31 @@
+<span class="loading spinner-hide"><img src="https://www.yugma.com/images/loading-animation-7.gif"/></span>
+<ul>
+  <li ng-repeat="photo in photos" hover-class="hover" class="col-xs-6 col-sm-6 col-md-4" ng-class="myDynamicClass">
+    <a ng-href="{{ photo.url }}" class="swipebox" title="{{ photo.content }}">
+      <md-card>
+        <div bg-image="{{ photo.url }}" class="md-card-image" alt="Washed Out" ></div>
+        <!--  -->
+        <div class="sw-imageContent">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">{{ photo.titre }}</span>
+            </md-card-title-text>
+          </md-card-title>
+          <hr>
+          <md-card-content>
+            <!-- <ul class="list-inline left" ng-repeat="(key, value) in photo.tags">
+              <li ng-if="$index < photo.tags.length-1">{{ value + ', '}}</li>
+              <li ng-show="$last">{{ value }}</li>
+            </ul> -->
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <!-- <md-button ng-click="$event.stopPropagation();$event.preventDefault();voirFiche(photo)" >Voir la fiche</md-button> -->
+          </md-card-actions>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button>Agrandir</md-button>
+          </md-card-actions>
+        </div>
+      </md-card>
+    </a>
+  </li>
+</ul>

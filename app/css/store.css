@@ -1,0 +1,115 @@
+.gridListdemoBasicUsage md-grid-list {
+  margin: 0px;
+}
+
+md-grid-list md-grid-tile figure {
+    -webkit-align-items: baseline !important;
+    -ms-flex-align: baseline !important;
+    align-items: baseline !important;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer, md-grid-list md-grid-tile md-grid-tile-header {
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+    height: auto  !important;
+    min-height: 150px;
+    padding: 2em;
+    background: none;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer h3, md-grid-list md-grid-tile md-grid-tile-footer h4, md-grid-list md-grid-tile md-grid-tile-header h3, md-grid-list md-grid-tile md-grid-tile-header h4 {
+    /*font-weight: 400;*/
+    margin: 0 0 0 0px;
+}
+
+.gridListdemoBasicUsage figcaption h4, .gridListdemoBasicUsage figcaption p {
+  color: black;
+  font-size: 1.5em;
+  padding: 20px 0px 0px 0px;
+}
+
+.gridListdemoBasicUsage img {
+  max-width: 100%; 
+  width: auto;
+  position: relative;
+  /* height: auto; */
+  height: 100%;
+}
+
+.gridListdemoBasicUsage img.paysage {
+  max-width: 100%; 
+  width: auto;
+  position: relative;
+  height: auto; 
+  /*height: 100%;*/
+}
+
+.gridListdemoBasicUsage .gray {
+  /*background: #726d71;*/
+  background-color: hsla(0, 0%, 95%, 0.95);
+  background-image: url(../img/texture.png);
+}
+
+.gridListdemoBasicUsage .green {
+  /*background: #7e7c7e; */
+  background-color: hsla(0, 0%, 92%, 0.95);
+  background-image: url(../img/texture.png);
+}
+
+.gridListdemoBasicUsage .green md-grid-tile-footer {
+  top: 5em;
+  right: 3.5em !important;
+  width: 300px;
+  left: initial;
+}
+
+.gridListdemoBasicUsage .yellow {
+  /*background: #726d71; */
+  background-color: hsla(0, 0%, 99%, 0.95);
+  background-image: url(../img/texture.png);
+}
+
+.gridListdemoBasicUsage .yellow md-grid-tile-footer {
+  top: 4em;
+}
+
+.gridListdemoBasicUsage .blue {
+  /*background: #787477; */
+  background-color: hsla(0, 0%, 90%, 0.95);
+  background-image: url(../img/texture.png);
+}
+
+.gridListdemoBasicUsage .purple {
+  /*background: #726d71; */
+  background-color: hsla(0, 0%, 100%, 0.95);
+  background-image: url(../img/texture.png);
+}
+
+.gridListdemoBasicUsage .red {
+  /*background: #787477;*/
+  background-color: hsla(0, 0%, 98%, 0.95); 
+  background-image: url(../img/texture.png);
+}
+
+.gridListdemoBasicUsage .red md-grid-tile-footer {
+  top: 4em;
+  right: 1.5em !important;
+  width: 300px;
+  left: initial;
+}
+
+.gridListdemoBasicUsage .red img {
+  left: 1em; 
+  position: absolute;
+}
+
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 400ms ease-out 50ms; 
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+*/

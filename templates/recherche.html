@@ -1,0 +1,20 @@
+<div class="col-md-12">
+  <div ng-controller="AppCtrl" layout="column" ng-cloak>
+    <md-content layout-padding>
+      <form name="projectForm" ng-submit="submitQuery(user.name, 'tag')">
+        <md-input-container class="md-block">
+          <label>Une image vaut mille mots ...</label>
+          <input md-maxlength="20" required md-no-asterisk name="description" ng-model="user.name" placeholder="Votre recherche ici ...">
+          <div ng-messages="projectForm.description.$error">
+            <div ng-message="required">Un seul mot sera autorisé pour cette recherche !</div>
+            <div ng-message="md-maxlength">Un maximum de 20 caractères.</div>
+          </div>
+        </md-input-container>
+        
+        <!-- <button type="submit" class="btn btn-lg btn-primary">Lancer la recherche</button> -->
+        <button type="submit" class="btn1 md-button md-ink-ripple" ng-transclude="">Trouver<div class="md-ripple-container"></div></button>
+
+      </form>
+    </md-content>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<!--  -->
+<div ng-include="'templates/headerPageIndex.html'"></div>
+<!--  -->
+<div id="blocs-home" class="">
+
+  <!--  -->
+  <a ng-click="submitBackMenu()" class="sw-retour-menu" title="">
+    <div hover-class="hover" class="col-md-4 sw-backMenu" ng-class="myDynamicClass">
+      <md-card-title-text>
+        <h5><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>retour aux albums</h5>
+        <h5 class="md-headline" id="titre_album" ></h5>
+      </md-card-title-text>
+    </div>
+  </a>
+  <!--  -->
+
+  <!--  -->
+  <ul>
+    <li ng-repeat="portfolio in portfolios" hover-class="hover" class="col-xs-6 col-sm-6 col-md-4" ng-class="myDynamicClassMenu">
+      <a ng-href="" class="" title="">
+        <md-card>
+          <div bg-image="{{ portfolio.image }}" class="md-card-image" alt="Washed Out" ></div>
+          <!--  -->
+          <div class="sw-imageContent">
+            <h6 class="">{{ portfolio.categorie }}</h6>
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{ portfolio.titre }}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <hr>
+            <md-card-content>
+              <!-- <ul class="list-inline left" ng-repeat="(key, value) in photo.tags">
+                <li ng-if="$index < photo.tags.length-1">{{ value + ', '}}</li>
+                <li ng-show="$last">{{ value }}</li>
+              </ul> -->
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="submitQuery(portfolio.submit, 'home')" >Voir</md-button>
+            </md-card-actions>
+          </div>
+        </md-card>
+      </a>
+    </li>
+  </ul>
+  <!--  -->
+
+  <!-- RESULTAT RECHERCHE GRILLE -->
+  <div id="grillePhotos" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 sw-resultat-grille"  ng-class="myDynamicClass" ng-hide="showDetails">
+    <div ng-include="'templates/grillePhotos.html'"></div>
+  </div>
+  <!--  -->
+
+  
+
+  <!--  -->
+  <div ng-include="'templates/subheaderPage.html'" class="sw-sub"></div>
+  <!--  -->
+
+  <ul class="bloc-index">
+    <!--  -->
+    <li ng-repeat="product in products | filter:{selected:false}" class="col-xs-12 col-sm-12 col-md-6">
+      <div class="{{ product.status }}">
+        <img ng-src="{{ product.image }}" alt="© Copyright 2016 Stéphane Wagner" width="382" height="302" class="">
+        <h1>{{ product.label }}</h1>
+        <p>{{ product.sublabel }}</p>
+        <hr>
+        <md-button ng-href="{{ product.link }}">{{ product.linkTitle }}</md-button>
+      </div>
+    </li>
+    <!--  -->
+  </ul>
+
+  <!--  -->
+  <div ng-include="'templates/subheaderPage2.html'" class="sw-sub"></div>
+  <!--  -->
+
+  <ul class="bloc-index">
+    <!--  -->
+    <li ng-repeat="product in products | filter:{selected:true}" class="col-xs-12 col-sm-12 col-md-6">
+      <div class="{{ product.status }}">
+        <img ng-src="{{ product.image }}" alt="© Copyright 2016 Stéphane Wagner" width="382" height="302" class="">
+        <h1>{{ product.label }}</h1>
+        <p>{{ product.sublabel }}</p>
+        <hr>
+        <md-button ng-href="{{ product.link }}">{{ product.linkTitle }}</md-button>
+      </div>
+    </li>
+    <!--  -->
+  </ul>
+
+
+</div>
+
+
+

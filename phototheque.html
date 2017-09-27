@@ -1,0 +1,38 @@
+<!--  -->
+<div id="headerPhototheque" ng-include="'templates/headerPhototheque.html'"></div>
+<!--  -->
+
+<div ng-controller="photothequeController" class="sw-phototheque">
+  <!-- RECHERCHE -->
+
+  <div class="sw-recherche" ng-hide="showDetails" >
+    <!-- <div class="col-md-6 row " bg-image="{{ defaultImage }}"></div> -->
+    <div ng-include="'templates/recherche.html'"></div>
+  </div>
+  <!-- FIN RECHERCHE -->
+
+  <div class="col-md-12 sw-fil">
+    <h6 class="md-headline" id="titre_album" >
+      Photothèque<span class="glyphicon glyphicon-chevron-right btn-sm" aria-hidden="true">
+    </h6>
+    <h6 class="md-headline" id="titre_album" >{{ category }}</h6>
+  </div>
+
+  <!-- NAV -->
+  <div id="menuGauche" class="col-xs-12 col-sm-3 col-md-2 sw-menu animate-hide" ng-hide="showDetails">
+    <div ng-include="'templates/navPhotos.html'"></div>
+  </div>
+  <!-- FIN NAV -->
+
+  <!-- RESULTAT RECHERCHE GRILLE -->
+  <div id="grillePhotos" class="col-xs-12 col-sm-9 col-md-10 sw-resultat-grille" ng-hide="showDetails">
+    <div ng-include="'templates/grillePhotos.html'"></div>
+  </div>
+  <!--  -->
+
+  <!-- Fiche -->
+  <!-- <div id="fichePhoto" class="col-md-12 sw-fiche-photo" ng-show="showDetails">
+    <div ng-include="'templates/fiche.html'"></div>
+  </div> -->
+
+</div>

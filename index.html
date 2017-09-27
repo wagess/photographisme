@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    
+    <title>Photothèque, Stéphane Wagner</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="app/swipebox/src/css/swipebox.css">
+    <link rel='stylesheet prefetch' href='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.2/angular-material.css'>
+
+    <script src="app/js/jquery-2.2.2.min.js"></script>
+    <script src="app/js/jquery.easing.1.3.js"></script>
+    <script src="app/js/bootstrap.min.js"></script>
+    <script src="app/js/parallax.js"></script>
+    <script src="app/swipebox/src/js/jquery.swipebox.js"></script>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js'></script>
+    <script src='https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.2/angular-material.js'></script>
+
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="app/swiper/css/swiper.min.css">
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="app/css/bootstrap-perso.css" rel="stylesheet" />
+    <link href="app/css/main.css" rel="stylesheet" />
+    <link href="app/css/sw.css" rel="stylesheet" />
+    <link href="app/css/store.css" rel="stylesheet" />
+    <link href="app/css/mobile.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="app/css/footer/footer-distributed-with-address-and-phones.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  </head>
+
+
+
+  <body ng-app="myApp">
+
+    <div class="sw-menu-top" ng-include="'templates/mainNav.html'"></div>
+
+    <!-- MAIN -->
+    <div class="main" ng-controller="MainController">
+      <div id="parallax-container" class="">
+        <!--  -->
+        <div class="parallax-window" data-min-height="800px" data-parallax="scroll" data-bleed="0" data-image-src="{{ defaultImage }}" data-z-index="-100"></div>
+        <!--  -->
+        <!--  -->
+      </div>
+      <div class="sw-view sw-hide">
+        <div ng-view></div>
+      </div>
+      <!--  -->
+      <div class="sw-footer sw-hide" ng-include="'templates/footer.html'"></div>
+      <!--  -->
+    </div>
+    <!-- MAIN -->
+
+    <!-- Modules -->
+    <script src="app/js/app.js"></script>
+
+
+    <!-- Directives -->
+    <script src="app/js/directives/bgImagePreload.js"></script>
+    <script src="app/js/directives/hoverClass.js"></script>
+
+    <!-- Controllers -->
+    <script src="app/js/controllers/MainController.js"></script>
+    <script src="app/js/controllers/photothequeController.js"></script>
+    <script src="app/js/controllers/storeController.js"></script>
+    <script src="app/js/controllers/dixitController.js"></script>
+    <script src="app/js/controllers/contactController.js"></script>
+    <script src="app/js/controllers/aboutController.js"></script>
+    <script src="app/js/controllers/showroomController.js"></script>
+    <script src="app/js/controllers/blogController.js"></script>
+    <script src="app/js/controllers/navController.js"></script>
+
+
+    
+    <script type="text/javascript">
+    
+    ;( function( $ ) {
+
+
+      //////////////////////////////////////
+      // SCROLL 
+      //////////////////////////////////////
+
+      $(window).scroll(function (event) {
+          var scroll = $(window).scrollTop();
+          // Do something
+          console.log(scroll)
+          if ( scroll >= 1000  ) {
+            $(".headerNav").addClass("sw-fixed");
+            $(".sw-footer").removeClass('sw-hide');
+            $(".sw-backMenu").addClass("sw-back-fixed");
+            $(".sw-fil").addClass("sw-back-fixed");
+          }else{
+            $(".headerNav").removeClass("sw-fixed");
+            $(".sw-backMenu").removeClass("sw-back-fixed");
+            $(".sw-fil").removeClass("sw-back-fixed");
+          }
+          
+          if ( scroll >= 20  ) {
+            $("#sw-logo-big").addClass("sw-opacity");
+
+            var hauteurGrille = angular.element("#grillePhotos").height();
+            // console.log("//////////// hauteurGrille test : "+hauteurGrille);
+            angular.element('#menuGauche').css('height', 'hauteurGrille' );
+          
+          }else{
+            $("#sw-logo-big").removeClass("sw-opacity");
+          }
+
+          if ( scroll >= 1000  ) {
+            $("#menuGauche").addClass("sw-fixed");
+          }else{
+            $("#menuGauche").removeClass("sw-fixed");
+          }
+      });
+
+      //
+      $( '#myscrollBtn1' ).fadeOut(0);
+      $( '#myscrollBtn2' ).fadeOut(0);
+
+      //////////////////////////////////////
+      // GALLERIE SWIPE BOX INDÉPENDANTE 
+      //////////////////////////////////////
+
+      $( '.swipebox' ).swipebox( {
+        useCSS : true, // false will force the use of jQuery for animations
+        useSVG : true, // false to force the use of png for buttons
+        initialIndexOnArray : 0, // which image index to init when a array is passed
+        hideCloseButtonOnMobile : false, // true will hide the close button on mobile devices
+        removeBarsOnMobile : true, // false will show top bar on mobile devices
+        hideBarsDelay : 20000, // delay before hiding bars on desktop
+        videoMaxWidth : 1140, // videos max width
+        beforeOpen: function() {}, // called before opening
+        afterOpen: null, // called after opening
+        afterClose: function() {}, // called after closing
+        loopAtEnd: true // true will return to the first image after the last image is reached
+      });
+
+      // $('header').parallax({imageSrc: '/path/to/image.jpg'});
+
+    } )( jQuery );
+
+    //////////////////////////////////////
+    // PRELOAD IMAGES GLOBAL
+    //////////////////////////////////////
+
+
+    loadsuccessHome = function(){
+
+      $('body').on('contextmenu', 'img', function(e){ return false; });
+
+      $( '#myscrollBtn1' ).delay(0).fadeIn(500);
+      $( '#myscrollBtn2' ).delay(500).fadeIn(500);
+
+    }
+
+    var urls = [
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/81490002-300x300.jpg', //
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/81490021-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/img_4429-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/81490023-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/img_0086-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/00480020-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/alsace-91-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/img_0107-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/000055640017-300x300.jpg',
+      'http://www.stephanewagner.com/phototheque/wp-content/uploads/2017/03/81450009.jpg',
+      './app/img/Shopify.png', //
+      './app/img/Showroom.png',
+      './app/img/logo-photographisme-top.png',
+      './app/img/texture.png',
+      './app/img/Phototheque.png',
+      './app/img/dixit.png',
+      './app/img/texture.png'
+    ]
+
+    // load images
+    var ImagesSource = [];
+    var ImagesLoadees = [];
+    var cnt = 0;
+    var index = 0;
+    // $(".sw-menu-top").addClass('sw-hide');
+    //
+    for (var j = 0; j < urls.length; j++) {
+      var monImage = new Image();
+      // 
+      monImage.onload = function() {
+        ++cnt;
+        if (cnt >= urls.length) {
+          for (var i = 0; i < urls.length; i++) {
+            //ImagesLoadees.push();
+            //$("#img"+i+"").attr('src', ImagesSource[i].src)
+          }
+          // all images loaded here
+          // then load js tilt effect
+          $.ajax({
+            // url: './app/js/navGaleriehome.js',
+            // dataType: "script",
+            success: loadsuccessHome()
+          });
+          
+          console.log("all images loaded");
+          $(".sw-view").removeClass('sw-hide');
+          $(".sw-footer").removeClass('sw-hide');
+        } else {
+          //adding images
+          // console.log("loading ... ");
+        }
+      };
+      monImage.src = urls[j];
+      ImagesSource.push(monImage);
+    }
+
+    </script>
+
+    <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-5088922-5', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+
+  </body>
+</html>
