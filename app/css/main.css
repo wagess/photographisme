@@ -288,9 +288,10 @@ nav span#sw-logo-top{
   margin: auto;
   padding: 0px;
   font-weight: 300;
-  /*text-transform: uppercase;*/
+  text-transform: uppercase;
   width: 100%;
-  font-family: 'Playfair Display', serif;
+  /*font-family: 'Playfair Display', serif;*/
+  font-family: 'Shrikhand', cursive !important;
   font-weight: 300;
 }
 
